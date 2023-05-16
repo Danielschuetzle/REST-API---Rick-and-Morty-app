@@ -1,3 +1,7 @@
+console.clear();
+
+const cardContainer = document.querySelector('[data-js="card-container"]');
+
 // Function to create a character card
 export function createCharacterCard(character) {
   // Create a new list item for the card
@@ -57,6 +61,9 @@ export function createCharacterCard(character) {
   content.appendChild(info);
   card.appendChild(imageContainer);
   card.appendChild(content);
+
+  // Append the card to the card container
+  cardContainer.appendChild(card);
 
   // Return the card
   return card;
