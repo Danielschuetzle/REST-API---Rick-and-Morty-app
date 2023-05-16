@@ -1,14 +1,9 @@
-<<<<<<< HEAD
-import createCharacterCard from "./card.js";
-
-=======
 // Import the createCharacterCard function from card.js
 import { createCharacterCard } from "./components/card.js";
 import { attachNavButtonListeners } from "./nav-button.js";
 import { attachSearchBarListener } from "./search-bar.js";
 
 // Get references to the needed HTML elements
->>>>>>> main
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBar = document.querySelector('[data-js="search-bar"]');
 const searchInput = document.querySelector(".search-bar__input");
