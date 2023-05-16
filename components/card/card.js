@@ -2,34 +2,69 @@ console.clear();
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 
-export function createCharacterCard() {
-  const listItem = document.createElement("li");
-  cardContainer.append(listItem);
+// Function to create a character card
+export function createCharacterCard(character) {
+  // Create a new list item for the card
+  const card = document.createElement("li");
+  card.className = "card";
 
-  const imageContainer = document.createElement("card__image-container");
-  cardContainer.append(imageContainer);
+  // Create a div for the card's image
+  const imageContainer = document.createElement("div");
+  imageContainer.className = "card__image-container";
 
+  // Create an image element for the character's image
   const image = document.createElement("img");
-  imageContainer.append(image);
+  image.className = "card__image";
+  image.src = character.image;
+  image.alt = character.name;
 
-  const imageGradient = document.createElement("card__image-gradient")
-  imageContainer.append(imageGradient);
+  // Append the image to the image container
+  imageContainer.appendChild(image);
 
-  const cardContent = document.createElement("card__content");
-  cardContainer.append(cardContent);
+  // Create a div for the card's content
+  const content = document.createElement("div");
+  content.className = "card__content";
 
-  const cardHeadline = document.createElement("card__title");
-  cardContent.append(cardHeadline);
-  cardHeadline.textContent = ;
+  // Create a heading element for the character's name
+  const name = document.createElement("h2");
+  name.className = "card__title";
+  name.textContent = character.name;
 
-  const descriptionListElement = document.createElement("card__info");
-  cardContent.append(descriptionListElement);
+  // Create a dl for the character's status and species
+  const info = document.createElement("dl");
+  info.className = "card__info";
 
-  const descriptionTerm = document.createElement("card__info-title");
-  descriptionListElement.append(descriptionTerm);
-  descriptionTerm.textContent = ;
+  // Create dt and dd for 'Status'
+  const statusTitle = document.createElement("dt");
+  statusTitle.className = "card__info-title";
+  statusTitle.textContent = "Status";
+  const statusDescription = document.createElement("dd");
+  statusDescription.className = "card__info-description";
+  statusDescription.textContent = character.status;
 
-  const descriptionDetails = document.createElement("card__info-description");
-  descriptionListElement.append(descriptionDetails);
-  descriptionDetails.textContent = ;
+  // Create dt and dd for 'Species'
+  const speciesTitle = document.createElement("dt");
+  speciesTitle.className = "card__info-title";
+  speciesTitle.textContent = "Species";
+  const speciesDescription = document.createElement("dd");
+  speciesDescription.className = "card__info-description";
+  speciesDescription.textContent = character.species;
+
+  // Append dt and dd to info
+  info.appendChild(statusTitle);
+  info.appendChild(statusDescription);
+  info.appendChild(speciesTitle);
+  info.appendChild(speciesDescription);
+
+  // Append elements to content and card
+  content.appendChild(name);
+  content.appendChild(info);
+  card.appendChild(imageContainer);
+  card.appendChild(content);
+
+  // Append the card to the card container
+  cardContainer.appendChild(card);
+
+  // Return the card
+  return card;
 }
