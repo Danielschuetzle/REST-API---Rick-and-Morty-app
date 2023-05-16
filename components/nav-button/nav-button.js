@@ -7,16 +7,16 @@ export function attachNavButtonListeners(
 ) {
   // Event listener for the prevButton
   prevButton.addEventListener("click", () => {
-    if (page > 1) {
-      page--;
+    if (page.value > 1) {
+      page.value--;
       fetchCharacters();
     }
   });
 
   // Event listener for the nextButton
   nextButton.addEventListener("click", () => {
-    if (page < maxPage) {
-      page++;
+    if (page.value < maxPage.value) {
+      page.value++;
       fetchCharacters();
     }
   });
